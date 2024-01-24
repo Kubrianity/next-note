@@ -1,6 +1,16 @@
 import NoteService from '../../services/note-service'
 import { NextResponse } from 'next/server'
 
+export async function GET() {
+  try {
+    const notes = await NoteService.findAll()
+    return NextResponse.json({notes}, {status: 200})
+  }
+  catch(err) {
+    return NextResponse.json({message: "Failed to get notes", err}, {status: 500})
+  }
+}
+
 export async function POST(req) {
   try {
     const body = await req.json()
