@@ -101,7 +101,7 @@ const NoteForm = () => {
 					<option value="not started">Completed</option>
 					<option value="started">Uncompleted</option>
 				</select>
-				<input type="submit" className="btn max-w-xs" value="Create NOte" />
+				<input type="submit" className="btn max-w-xs" value="Create a Note" />
 			</form>
 		</div>
 	);
