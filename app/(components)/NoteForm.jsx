@@ -10,8 +10,7 @@ const NoteForm = () => {
 		title: '',
 		description: '',
 		priority: 1,
-		progress: 0,
-		status: 'not started',
+		status: 'Uncompleted',
 	};
 
 	const [formData, setFormData] = useState(startingData);
