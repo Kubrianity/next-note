@@ -7,8 +7,8 @@ const NoteSchema = new Schema(
 	{
 		title: String,
 		description: String,
+    status: String,
 		priority: Number,
-		progress: Number,
 		active: Boolean,
 	},
 	{
