@@ -97,8 +97,8 @@ const NoteForm = () => {
 				</div>
 				<label>Status</label>
 				<select name="status" value={formData.status} onChange={handleChange}>
-					<option value="not started">Completed</option>
-					<option value="started">Uncompleted</option>
+					<option value="Completed">Completed</option>
+					<option value="Uncompleted">Uncompleted</option>
 				</select>
 				<input type="submit" className="btn max-w-xs" value="Create a Note" />
 			</form>
