@@ -1,9 +1,9 @@
 import NoteForm from "../(components)/NoteForm"
 
-const NoterPage = () => {
+const NotePage = () => {
   return (
     <NoteForm />
   )
 }
 
-export default NoterPage
+export default NotePage
