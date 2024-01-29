@@ -18,7 +18,7 @@ const DeleteIcon = ({id}) => {
 		router.refresh();
 	};
 
-	return <FontAwesomeIcon onClick={handleDelete} icon={faTrash} className="text-slate-700"/>;
+	return <FontAwesomeIcon onClick={handleDelete} icon={faTrash} className="text-slate-700 btn"/>;
 };
 
 export default DeleteIcon;
