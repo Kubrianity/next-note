@@ -9,7 +9,7 @@ const NoteCard = ({note}) => {
 				<div className="flex mb-3">
 					<PriorityDisplay priority={note.priority} />
 					<div className="ml-auto">
-						<DeleteIcon />
+						<DeleteIcon id={note._id} />
 					</div>
 				</div>
         <h4>{note.title}</h4>
