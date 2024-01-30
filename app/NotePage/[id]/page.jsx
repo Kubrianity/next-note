@@ -1,4 +1,4 @@
-import NoteForm from "../(components)/NoteForm"
+import NoteForm from "../../(components)/NoteForm"
 
 const NotePage = () => {
   return (
