@@ -5,7 +5,7 @@ import StatusDisplay from './StatusDisplay';
 const NoteCard = ({note}) => {
 	return (
 		<div>
-			<div className="flex flex-col hover:bg-card-hover bg-card rounded-md shadow-lg p-3 m-2">
+			<div className="flex flex-col hover:bg-card-hover bg-card rounded-md shadow-lg p-3 m-2 break-words">
 				<div className="flex mb-3">
 					<PriorityDisplay priority={note.priority} />
 					<div className="ml-auto">
