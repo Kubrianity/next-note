@@ -12,6 +12,19 @@ export async function GET(req, { params }) {
   }
 }
 
+export async function PUT(req, { params }) {
+  try {
+    const { id } = params;
+    const body = await req.json();
+    const noteData = body.formData;
+    await NoteService.update(id, noteData);
+    return NextResponse.json({ message: "Note updated" }, { status: 200 });
+  } 
+  catch (error) {
+    return NextResponse.json({ message: "Failed to update note", error }, { status: 500 });
+  }
+}
+
 export async function DELETE(req, {params}) {
   try {
     const {id} = params
