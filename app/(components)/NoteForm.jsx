@@ -3,15 +3,22 @@
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
-const NoteForm = () => {
+const NoteForm = ({ note }) => {
 	const router = useRouter();
-
-	const startingData = {
+  const isEditing = note?._id ? true : false;
+  const startingData = {
 		title: '',
 		description: '',
 		priority: 1,
 		status: 'Uncompleted',
 	};
+
+  if(isEditing) {
+    startingData["title"] = note.title
+    startingData["description"] = note.description 
+    startingData["priority"] = note.priority 
+    startingData["status"] = note.status
+  }
 
 	const [formData, setFormData] = useState(startingData);
 
@@ -27,14 +34,31 @@ const NoteForm = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const res = await fetch('/api/Notes', {
-			method: 'POST',
-			body: JSON.stringify({ formData }),
-			'content-type': 'application/json',
-		});
-		if (!res.ok) {
-			throw new Error('Failed to create a note');
-		}
+
+    if (isEditing) {
+      const res = await fetch(`/api/Notes/${note._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ formData }),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to update note");
+      }
+    }
+
+    else {
+      const res = await fetch('/api/Notes', {
+        method: 'POST',
+        body: JSON.stringify({ formData }),
+        'content-type': 'application/json',
+      });
+      if (!res.ok) {
+        throw new Error('Failed to create a note');
+      }
+    }
+
     router.push('/');
 		router.refresh();
 	};
@@ -100,7 +124,7 @@ const NoteForm = () => {
 					<option value="Completed">Completed</option>
 					<option value="Uncompleted">Uncompleted</option>
 				</select>
-				<input type="submit" className="btn max-w-xs" value="Create a Note" />
+				<input type="submit" className="btn max-w-xs" value={isEditing ? "Edit Note" : "Create Note"} />
 			</form>
 		</div>
 	);
