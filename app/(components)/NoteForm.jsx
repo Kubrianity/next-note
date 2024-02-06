@@ -35,8 +35,8 @@ const NoteForm = () => {
 		if (!res.ok) {
 			throw new Error('Failed to create a note');
 		}
+    router.push('/');
 		router.refresh();
-		router.push('/');
 	};
 
 	return (
