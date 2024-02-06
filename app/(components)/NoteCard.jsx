@@ -2,6 +2,7 @@ import DeleteIcon from './DeleteIcon';
 import PriorityDisplay from './PriorityDisplay';
 import StatusDisplay from './StatusDisplay';
 import EditIcon from './EditIcon'
+
 const NoteCard = ({note}) => {
 	return (
 		<div>
@@ -15,7 +16,7 @@ const NoteCard = ({note}) => {
         <div className="flex mt-1">
           <h4>{note.title}</h4>
           <div className="ml-auto">
-            <EditIcon />
+            <EditIcon id={note._id} />
           </div>
         </div>
         <hr></hr>
