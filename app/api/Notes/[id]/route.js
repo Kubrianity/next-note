@@ -1,6 +1,17 @@
 import NoteService from '../../../services/note-service'
 import { NextResponse } from 'next/server'
 
+export async function GET(req, { params }) {
+  try {
+    const { id } = params;
+    const data = await NoteService.find(id);
+    return NextResponse.json({ data }, { status: 200 });
+  }
+  catch(err) {
+    return NextResponse.json({message: "Failed to get note", err}, {status: 500})
+  }
+}
+
 export async function DELETE(req, {params}) {
   try {
     const {id} = params
